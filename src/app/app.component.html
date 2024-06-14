@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div id="banner"><h1 >Pets</h1><div id="buttons"> <button (click)="fishButton()">Fish</button><button (click)="catButton()">Cats</button><button (click)="dogButton()">Dogs</button></div></div>
+<main >
+
+    <h1 style="margin-top: 30px" id="selectDescription">Decription :</h1>
+
+  <div *ngFor="let obr of options;" id="imgDiv">
+    <h1 style="margin-top: 100px">{{obr.Number}}</h1>
+    <img src="{{obr.Image}}">
+    <img src="{{obr.Image1}}">
+    <img src="{{obr.Image2}}">
+  </div>
+  <br>
+  <div id="checkbox1">
+
+    <select style="margin-top: 0px;margin-right: 10px" name="options" [(ngModel)]="currentItem">
+      <option *ngFor="let item of options" [ngValue]="item" >{{item.Text}}</option>
+
+
+    </select >
+
+    <label for="checkboxDescription">
+  <input type="checkbox" id="checkboxDescription" (change)="description()" >Description
+    </label>
+  </div>
+  <br>
+
+  <div class="description" *ngIf="showMe" ><p>{{currentItem.Description}}</p></div>
+
+</main>
+</body>
+</html>
